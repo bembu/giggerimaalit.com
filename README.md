@@ -14,5 +14,5 @@
 		- npm install
 
 	- LAUNCH!
-		- run: gulp watch on one console
-		- run: python giggerimaalit.py on another console 
+		- run: "gulp watch" on one console
+		- run: "python giggerimaalit.py" on another console 
