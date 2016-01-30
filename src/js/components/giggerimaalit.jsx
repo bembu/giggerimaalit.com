@@ -7,18 +7,14 @@ export default React.createClass({
   getInitialState: function() {
     return {
       selectedVideo: "",
-      videoList: [],
-      videoInfo: {}
+      videoInfo: null
     };
   },
 
   componentDidMount: function() {
     this.serverRequest = $.get("/api/videos", function (result) {
-
-      var videolist = result["files"];
       var videoinfo = result;
-
-      this.setState({videoList: videolist, videoInfo: videoinfo});
+      this.setState({videoInfo: videoinfo});
     }.bind(this));
   },
 
@@ -41,13 +37,13 @@ export default React.createClass({
         <div className="container justify-center">
           <div className="col-6 header">
             <div className="title">
-              <img src="/static/img/gofore-g.svg" width="80px"></img>iggermaalit<span className="small">.com</span>
+              <img src="/static/img/gofore-g.svg" width="80px"></img>iggerimaalit<span className="small">.com</span>
             </div>
           </div>
         </div>
         <div className="container justify-center">
           <div className="col-2 sidebar">
-            <VideoList videos={this.state.videoList} selectVideo={this.selectVideo} />
+            <VideoList videoInfo={this.state.videoInfo} selectVideo={this.selectVideo} />
           </div>
           <div className="col-6 videocontainer">
             {videoContainer}
