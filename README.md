@@ -1,6 +1,7 @@
 # Giggerimaalit.com 
 
 ## Installation
+
 	- make a virtual environment
 		- pip install virtualenv
 		- virtualenv venv 
@@ -8,5 +9,10 @@
 		- source /venv/bin/activate (unix)
 	- install python packages
 		- pip install -r requirements.txt
+
+	- install node modules
+		- npm install
+
 	- LAUNCH!
-		- python main.py
+		- run: gulp watch on one console
+		- run: python giggerimaalit.py on another console 
