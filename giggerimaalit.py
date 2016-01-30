@@ -24,7 +24,10 @@ class VideoListApi(Resource):
 
 class VideoApi(Resource):
     def get(self, video_name):
-        return send_file("videos/"+video_name)
+        if video_name in os.listdir('videos'):
+            return send_file("videos/"+video_name)
+        else:
+            print("Can't find file ", video_name)
 
 api.add_resource(VideoListApi, '/api/videos')
 api.add_resource(VideoApi, '/api/videos/<string:video_name>')
