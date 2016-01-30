@@ -30,12 +30,12 @@ export default React.createClass({
 
     var videoContainer = this.state.selectedVideo ? 
       (<VideoContainer video={this.state.selectedVideo}/>) :
-      (<div><img className="hand" src="/static/img/pointinghand.svg"></img></div>) ;
+      (<div><img className="hand" src="/static/img/pointinghand.svg"></img></div>);
 
     return (
       <div>
         <div className="container justify-center">
-          <div className="col-6 header">
+          <div className="col-12 header">
             <div className="title">
               <img src="/static/img/gofore-g.svg" width="80px"></img>iggerimaalit<span className="small">.com</span>
             </div>
