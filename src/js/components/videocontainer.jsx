@@ -3,7 +3,7 @@ import React from 'react';
 export default React.createClass({
   render: function () {
 
-    var video = "./api/videos/default.mp4";
+    var video = "./api/videos/test.mp4";
     if (this.props.video) {
       video = "./api/videos/" + this.props.video;
     }
@@ -12,7 +12,7 @@ export default React.createClass({
 
     return (
       <div>
-        <video controls src={video} />
+        <video controls autoplay src={video} />
       </div>
     );
   }

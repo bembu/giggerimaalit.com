@@ -5,7 +5,21 @@ import VideoList from 'components/videolist';
 export default React.createClass({
 
   getInitialState: function() {
-    return {selectedVideo: ""};
+    return {
+      selectedVideo: "",
+      videoList: []
+    };
+  },
+
+  componentDidMount: function() {
+    this.serverRequest = $.get("/api/videos", function (result) {
+      var videolist = result;
+      this.setState({videoList: videolist});
+    }.bind(this));
+  },
+
+  componentWillUnmount: function() {
+    this.serverRequest.abort();
   },
 
   selectVideo: function (vid) {
@@ -14,7 +28,7 @@ export default React.createClass({
 
   render: function () {
 
-    var videos = ["test.mp4", "my-awesome-vid.mp4", "my-best-video.mp4", "this-is-awesome.mp4"]
+    console.log(this.state.videoList);
 
     return (
       <div>
@@ -25,7 +39,7 @@ export default React.createClass({
         </div>
         <div className="container justify-center">
           <div className="col-3 sidebar">
-            <VideoList videos={videos} selectVideo={this.selectVideo} />
+            <VideoList videos={this.state.videoList} selectVideo={this.selectVideo} />
           </div>
           <div className="col-6 videocontainer">
             <VideoContainer video={this.state.selectedVideo}/>
