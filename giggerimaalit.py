@@ -15,7 +15,19 @@ def index():
 class VideoListApi(Resource):
 
     def get_video_names(self):
-        return [file_name for file_name in os.listdir('videos')]
+
+        videos = []
+        # only get filetypes we want
+        for vid in os.listdir('videos'):
+            if vid.split(".")[-1] in ["mp4"]:
+                videos.append(vid)
+
+        with open('videos/info.json') as data_file:
+            info = json.load(data_file)
+
+        info["files"] = videos
+
+        return info
 
     def get(self):
         return self.get_video_names()
@@ -26,7 +38,7 @@ class VideoApi(Resource):
         if video_name in os.listdir('videos'):
             return send_file("videos/" + video_name)
         else:
-            print("Can't find file ", video_name)
+            return {'error': 'Video with the following filename was not found on the server.'}, 404
 
 api.add_resource(VideoListApi, '/api/videos')
 api.add_resource(VideoApi, '/api/videos/<string:video_name>')

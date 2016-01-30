@@ -7,14 +7,18 @@ export default React.createClass({
   getInitialState: function() {
     return {
       selectedVideo: "",
-      videoList: []
+      videoList: [],
+      videoInfo: {}
     };
   },
 
   componentDidMount: function() {
     this.serverRequest = $.get("/api/videos", function (result) {
-      var videolist = result;
-      this.setState({videoList: videolist});
+
+      var videolist = result["files"];
+      var videoinfo = result;
+
+      this.setState({videoList: videolist, videoInfo: videoinfo});
     }.bind(this));
   },
 
