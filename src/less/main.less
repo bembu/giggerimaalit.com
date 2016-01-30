@@ -1,20 +1,51 @@
 @import 'juiced.css';
 
 // colors
-@midnight-blue: #153450;
-@bluewood: #294052;
-@wedgewood: #447294;
-@morning-glory: #8FBCDB;
-@wheat: #F4D6BC;
-@givry: #F8E4CC;
+@gofore-blue: #343F68;
+@gofore-light-blue: #787DA0;
+@gofore-orange: #FF8551;
 
 body {
-  background-color: @bluewood;
-  color: @morning-glory;
+  background-color: @gofore-blue;
+  color: @gofore-light-blue;
+
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
 }
 
-.sidebar {
+.title {
+  color: @gofore-orange;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+
+  font-size: 36px;
+
+  img {
+    margin: -18px -12px;
+  }
+
+}
+
+.sidebar li {
+  width: 12em;
+  list-style-type: none;
+  padding: 4px;
+  margin: 4px;
+
+  background-color: @gofore-orange;
+  color: white;
+
+  font-size: 0.8em;
+}
+
+.sidebar li:hover {
+  cursor: pointer;
+  color: @gofore-blue;
 }
 
 .videocontainer {
+}
+
+.videocontainer video {
+  width: 100%;
 }
