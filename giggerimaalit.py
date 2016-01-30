@@ -8,24 +8,23 @@ api = Api(app)
 
 parser = reqparse.RequestParser()
 
-
-def get_video_names():
-    return [file_name for file_name in os.listdir('videos')]
-
 @app.route('/')
 def index():
     return render_template('index.html')
 
-
 class VideoListApi(Resource):
+
+    def get_video_names(self):
+        return [file_name for file_name in os.listdir('videos')]
+
     def get(self):
-        return get_video_names()
+        return self.get_video_names()
 
 
 class VideoApi(Resource):
     def get(self, video_name):
         if video_name in os.listdir('videos'):
-            return send_file("videos/"+video_name)
+            return send_file("videos/" + video_name)
         else:
             print("Can't find file ", video_name)
 

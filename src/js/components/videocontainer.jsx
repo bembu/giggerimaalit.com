@@ -8,11 +8,9 @@ export default React.createClass({
       video = "./api/videos/" + this.props.video;
     }
 
-    console.log("video selected: " + this.props.video);
-
     return (
       <div>
-        <video controls autoplay src={video} />
+        <video controls autoPlay src={video} />
       </div>
     );
   }

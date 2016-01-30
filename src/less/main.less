@@ -4,10 +4,12 @@
 @gofore-blue: #343F68;
 @gofore-light-blue: #787DA0;
 @gofore-orange: #FF8551;
+@gofore-light-orange: #FFDACA;
+@gofore-grey: #DEDEE2;
 
 body {
   background-color: @gofore-blue;
-  color: @gofore-light-blue;
+  color: @gofore-grey;
 
   font-family: 'Lato', sans-serif;
   font-weight: 400;
@@ -15,35 +17,79 @@ body {
 
 .title {
   color: @gofore-orange;
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
 
-  font-size: 36px;
+  font-size: 2.5em;
+  text-align: center;
+
+  margin: 1em;
 
   img {
-    margin: -18px -12px;
+    margin: -26px -16px;
+    color: @gofore-orange;
+  }
+
+  .small {
+    font-size: 0.5em;
   }
 
 }
 
+.hand {
+
+  animation: shake 5s cubic-bezier(.36,.07,.19,.97) both infinite;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  animation-delay: 1s;
+
+  @keyframes shake {
+    2.5%, 22.5% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    5%, 20% {
+      transform: translate3d(2px, 0, 0);
+    }
+
+    7.5%, 12.5%, 17.5% {
+      transform: translate3d(-4px, 0, 0);
+    }
+
+    10%, 15% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+
+  padding: 1em;
+}
+
+.sidebar ul {
+  margin-top: 0;
+}
+
 .sidebar li {
-  width: 12em;
   list-style-type: none;
   padding: 4px;
-  margin: 4px;
+  margin-bottom: 4px;
 
   background-color: @gofore-orange;
-  color: white;
+  color: @gofore-blue;
 
   font-size: 0.8em;
 }
 
 .sidebar li:hover {
   cursor: pointer;
+  background-color: @gofore-light-orange;
   color: @gofore-blue;
 }
 
+.videolist {
+  padding: 0 1em;
+}
+
 .videocontainer {
+  padding: 0 1em;
 }
 
 .videocontainer video {

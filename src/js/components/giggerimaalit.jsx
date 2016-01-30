@@ -28,21 +28,25 @@ export default React.createClass({
 
   render: function () {
 
-    console.log(this.state.videoList);
+    var videoContainer = this.state.selectedVideo ? 
+      (<VideoContainer video={this.state.selectedVideo}/>) :
+      (<div><img className="hand" src="/static/img/pointinghand.svg"></img></div>) ;
 
     return (
       <div>
         <div className="container justify-center">
-          <div className="col-8 header">
-            <h1 className="title"><img src="/static/img/gofore-g.svg" width="60px"></img>iggerimaalit.com</h1>
+          <div className="col-6 header">
+            <div className="title">
+              <img src="/static/img/gofore-g.svg" width="80px"></img>iggermaalit<span className="small">.com</span>
+            </div>
           </div>
         </div>
         <div className="container justify-center">
-          <div className="col-3 sidebar">
+          <div className="col-2 sidebar">
             <VideoList videos={this.state.videoList} selectVideo={this.selectVideo} />
           </div>
           <div className="col-6 videocontainer">
-            <VideoContainer video={this.state.selectedVideo}/>
+            {videoContainer}
           </div>
         </div>
       </div>
