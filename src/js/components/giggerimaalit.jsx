@@ -3,9 +3,16 @@ import React from 'react';
 export default React.createClass({
   render: function () {
     return (
-      <div>
-        Hey! This is just an auto-generated component.
-        Now it's up to you to make something great! WHADAP
+      <div className="container">
+        <div className="col-12 header">
+      		<h1>Giggerimaalit.com</h1>
+      	</div>
+      	<div className="col-4 sidebar">
+      		goals-list here
+      	</div>
+      	<div className="col-8 videocontainer">
+      		videocontainer here
+      	</div>
       </div>
     );
   }
